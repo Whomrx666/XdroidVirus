@@ -21,6 +21,9 @@ $ bash XdroidVirus.sh
 - **Fourth**: Select one of the viruses to regenerate and don't forget to activate hotspot
 - **Last**: After the link appears, send the link to the target you want
 
+## Warning
+Only install this tools on termux
+
 ## About
 * Tool name : XdroidVirus 
 * version   : 1.0
